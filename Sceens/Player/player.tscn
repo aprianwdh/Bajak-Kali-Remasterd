@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://dtr4ank0navvs"]
+[gd_scene load_steps=30 format=3 uid="uid://dtr4ank0navvs"]
 
 [ext_resource type="Script" path="res://Scripts/Player/player.gd" id="1_iaaqv"]
 [ext_resource type="Texture2D" uid="uid://vppjn2fi5gpk" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/04-Fall/Fall 01.png" id="1_t5ow6"]
@@ -16,6 +16,9 @@
 [ext_resource type="Texture2D" uid="uid://cjhu6u4ejxaes" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 04.png" id="13_ohmwx"]
 [ext_resource type="Texture2D" uid="uid://cp1py8bx38tqi" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 05.png" id="14_eyjit"]
 [ext_resource type="Texture2D" uid="uid://cyfsltkjer8x4" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose without Sword/02-Run/Run 06.png" id="15_2tai8"]
+[ext_resource type="Texture2D" uid="uid://dnnhyk23fwwxe" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 01.png" id="17_thn0x"]
+[ext_resource type="Texture2D" uid="uid://brxc6h57jsyb5" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 02.png" id="18_tt118"]
+[ext_resource type="Texture2D" uid="uid://bbv26vu6cxjp" path="res://Asets/Treasure Hunters - PNG only/Captain Clown Nose/Captain Clown Nose/Captain Clown Nose with Sword/17-Attack 3/Attack 3 03.png" id="19_ol36v"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_s4or0"]
 animations = [{
@@ -88,17 +91,167 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fubb"]
 size = Vector2(22, 26)
 
+[sub_resource type="Animation" id="Animation_buob4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("atack_area/sword_overlaping:disabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vb1pd"]
+resource_name = "atack"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("17_thn0x"), ExtResource("18_tt118"), ExtResource("19_ol36v"), ExtResource("2_sw74e")]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("atack_area/sword_overlaping:disabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:atacking")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_1o7kx"]
+resource_name = "fall"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("1_t5ow6")]
+}
+
+[sub_resource type="Animation" id="Animation_s68l6"]
+resource_name = "iddle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("2_sw74e"), ExtResource("3_ocuyw"), ExtResource("4_erggf"), ExtResource("5_lodlg"), ExtResource("6_3a0uu")]
+}
+
+[sub_resource type="Animation" id="Animation_pt364"]
+resource_name = "jump"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("7_g26vi"), ExtResource("8_lotu4"), ExtResource("9_frstv")]
+}
+
+[sub_resource type="Animation" id="Animation_2c31b"]
+resource_name = "run"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [ExtResource("10_6ct1r"), ExtResource("11_633tj"), ExtResource("12_xi4yw"), ExtResource("13_ohmwx"), ExtResource("14_eyjit"), ExtResource("15_2tai8")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_gbd8i"]
+_data = {
+"RESET": SubResource("Animation_buob4"),
+"atack": SubResource("Animation_vb1pd"),
+"fall": SubResource("Animation_1o7kx"),
+"iddle": SubResource("Animation_s68l6"),
+"jump": SubResource("Animation_pt364"),
+"run": SubResource("Animation_2c31b")
+}
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_fti61"]
+size = Vector2(17, 22)
+
 [node name="player" type="CharacterBody2D"]
 position = Vector2(152, 84)
 collision_mask = 2
 script = ExtResource("1_iaaqv")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 scale = Vector2(1.5, 1.5)
 sprite_frames = SubResource("SpriteFrames_s4or0")
-animation = &"iddle"
+animation = &"run"
 autoplay = "iddle"
 
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_sw74e")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 3)
+position = Vector2(1, -3)
 shape = SubResource("RectangleShape2D_1fubb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_gbd8i")
+}
+
+[node name="atack_area" type="Area2D" parent="."]
+
+[node name="sword_overlaping" type="CollisionShape2D" parent="atack_area"]
+position = Vector2(18, -3)
+shape = SubResource("RectangleShape2D_fti61")
+disabled = true
